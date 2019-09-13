@@ -1,0 +1,205 @@
+
+<!--
+including header content which is common for all pages
+-->
+<%- include ../layouts/header.ejs %>	
+	
+		
+<% if (messages.error) { %>
+	<div id="toast" class="toast toast-error">
+			<button id="btn-clear" class="btn btn-clear float-right"></button>
+			<%- messages.error %>
+		</div>
+<% } %>
+
+<% if (messages.success) { %>
+	<div id="toast" class="toast toast-success">
+			<button id="btn-clear" class="btn btn-clear float-right"></button>
+			<%- messages.success %>
+		</div>
+<% } %>
+
+<div class="content-wrapper--outer edit-student-bg padded">
+    <!-- <form action="/users/edit/<%= id %>" method="post" name="form1">
+		<table width="25%" border="0">
+			<tr> 
+				<td>First Name</td>
+				<td><input type="text" name="fname" id="fname" value="<%= fname %>" /></td>
+			</tr>
+			<tr> 
+				<td>Last Name</td>
+				<td><input type="text" name="lname" id="lname" value="<%= lname %>" /></td>
+			</tr>
+			<tr> 
+				<td>Age</td>
+				<td><input type="text" name="age" value="<%= age %>" /></td>
+			</tr>
+			<tr> 
+				<td>Mobile</td>
+				<td><input type="text" name="mobile" value="<%= mobile %>" /></td>
+			</tr>
+			<tr> 
+				<td>Email</td>
+				<td><input type="text" name="email" value="<%= email %>" /></td>
+			</tr>
+			<tr> 
+				<td></td>
+				<td><input type="submit" name="Submit" value="Edit" /></td>
+			</tr>
+		</table>
+		<input type="hidden" name="_method" value="PUT" />
+	</form> -->
+	<div class="card edit-student-card transparent-white">
+			<div class="card-header">
+				<div class="card-title h5 text-brown">Edit Appointment Information</div>
+				<div class="card-subtitle text-light">Fill in form</div>
+			</div>
+			<div class="divider"></div>
+			<div class="card-body">
+			<form class="form-horizontal" action="/users/edit/<%= id %>" method="post" name="form1">
+				<!-- First Name -->
+				<div class="form-group">
+					<div class="col-3 col-sm-12">
+					<label class="form-label" for="fname">First Name</label>
+					</div>
+					<div class="col-9 col-sm-12">
+					<input class="form-input" name="fname" id="fname" value="<%= fname %>" placeholder="First Name">
+					</div>
+				</div>
+				<!-- Last Name -->
+				<div class="form-group">
+					<div class="col-3 col-sm-12">
+						<label class="form-label" for="lname">Last Name</label>
+					</div>
+					<div class="col-9 col-sm-12">
+						<input class="form-input"  name="lname" id="lname" value="<%= lname %>" placeholder="Name">
+					</div>
+					</div>
+				<!-- Age -->
+				<div class="form-group">
+					<div class="col-3 col-sm-12">
+						<label for="age" class="form-label">Age</label>
+					</div>
+					<div class="col-9 col-sm-12">
+						<input type="number" name="age" value="<%= age %>" class="form-input" placeholder="21">
+					</div>
+				</div>
+				<!-- Mobile -->
+				<div class="form-group">
+					<div class="col-3 col-sm-12">
+						<label for="mobile" class="form-label">Phone Number</label>
+					</div>
+					<div class="col-9 col-sm-12">
+						<input type="tel" name="mobile" value="<%= mobile %>" class="form-input" placeholder="0788000000">
+					</div>
+				</div>
+				<!-- Email -->
+				<div class="form-group">
+					<div class="col-3 col-sm-12">
+						<label for="email" class="form-label">Email</label>
+					</div>
+					<div class="col-9 col-sm-12">
+						<input type="email" name="email" value="<%= email %>" class="form-input" placeholder="hello@gmail.com">
+					</div>
+				</div>
+				<!-- gender -->
+				<div class="form-group">
+						<div class="col-3 col-sm-12">
+							<label for="gender" class="form-label">Gender</label>
+						</div>
+						<div class="col-9 col-sm-12">
+							<select name="gender" class="form-select">
+								<option value="male">Male</option>
+								<option value="female">Female</option>
+							</select>
+						</div>
+					</div>
+				<!-- id -->
+				<div class="form-group">
+						<div class="col-3 col-sm-12">
+							<label for="id" class="form-label">ID/Passport</label>
+						</div>
+						<div class="col-9 col-sm-12">
+							<input class="form-input" value="<%= identity %>" name="identity" />
+						</div>
+					</div>
+				<!-- secondary -->
+				<div class="form-group">
+						<div class="col-3 col-sm-12">
+							<label for="secondary" class="form-label">Secondary School</label>
+						</div>
+						<div class="col-9 col-sm-12">
+							<input class="form-input" value="<%= secondary %>" name="secondary" />
+						</div>
+					</div>
+				<!-- transcript -->
+				<!-- faculty -->
+				<div class="form-group">
+						<div class="col-3 col-sm-12">
+							<label for="faculty" class="form-label">Faculty</label>
+						</div>
+						<div class="col-9 col-sm-12">
+							<select name="faculty" class="form-select">
+								<option value="business">Business Management & Economics</option>
+								<option value="it">IT & Architecture</option>
+								<option value="law">Law</option>
+							</select>
+						</div>
+					</div>
+				<!-- department -->
+				<div class="form-group">
+						<div class="col-3 col-sm-12">
+							<label for="department" class="form-label">Department</label>
+						</div>
+						<div class="col-9 col-sm-12">
+							<select name="department" class="form-select">
+								<option value="accounting">Accounting</option>
+								<option value="commerce">Commerce</option>
+								<option value="economics">Economics</option>
+								<option value="marketing">Marketing</option>
+								<option value="procurement">Procurement</option>
+								<option value="finance">Finance</option>
+								<option value="bbit">BBIT</option>
+								<option value="bit">BIT</option>
+								<option value="bcs">BCS</option>
+								<option value="law">LAW</option>
+							</select>
+						</div>
+					</div>
+				<!-- session -->
+				<div class="form-group">
+						<div class="col-3 col-sm-12">
+							<label for="session" class="form-label">Session</label>
+						</div>
+						<div class="col-9 col-sm-12">
+							<select name="session"  class="form-select">
+								<option value="day">Day</option>
+								<option value="evening">Evening</option>
+								<option value="weekend">Weekend</option>
+							</select>
+						</div>
+					</div>
+				<!-- Submit -->
+				<div class="padded-tb">
+					<button class="btn-block btn btn-primary bg-brown text-white" type="submit">Edit Information</button>
+				</div>
+				<input type="hidden" name="_method" value="PUT" />
+				</form>
+				</div>
+				</div>
+				</div>
+
+
+
+			</div>
+</div>
+
+
+
+
+
+<!--
+including footer content which is common for all pages
+-->
+<%- include ../layouts/footer.ejs %>
+
