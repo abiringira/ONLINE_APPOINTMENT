@@ -47,6 +47,7 @@ app.get('/', function(req, res, next) {
 
 	dbcol.find().sort({"_id": -1}).toArray (function(err, result) {
 		//if (err) return console.log(err)
+		console.log(result.toString());
 		if (err) {
 			req.flash('error', err);
 			res.render('appointment/list', {
@@ -65,10 +66,8 @@ app.get('/', function(req, res, next) {
 });
 
 
-
 app.get('/doctorview', function(req, res, next) {	
 	// fetch and sort users collection by id in descending order
-
 	dbcol.find().sort({"_id": -1}).toArray (function(err, result) {
 		//if (err) return console.log(err)
 		if (err) {
@@ -149,6 +148,7 @@ app.post('/center', function(req, res, next){
         });
     }
 });
+
 
 
 
@@ -300,6 +300,8 @@ app.post('/login',urlencodedParser,function(req,res){
 // SHOW ADD USER FORM
 app.get('/add', function(req, res, next){	
 	// render to views/user/add.ejs
+	dbcol2.find().sort({"_id": -1}).toArray (function(err, centerresult) {
+		//console.log(centerresult.toString());
 	res.render('appointment/add', {
 		title: 'Add New Appointment',
 		fname: '',
@@ -311,8 +313,14 @@ app.get('/add', function(req, res, next){
 		identity: '',
 		province: '',
 		district: '',
-		counselor: ''		
+		counselor: '',
+		datacenter: centerresult	
+		
 	});
+	//res.json({Result : centerresult});
+	
+   });
+   
 });
 
 

@@ -1,7 +1,7 @@
 <!--
 including header content which is common for all pages
 -->
-<%- include ../layouts/header.ejs %>	
+<%- include ../layouts/headerUser.ejs %>	
 
 
 <% if (messages.error) { %>
@@ -138,15 +138,31 @@ including header content which is common for all pages
 						<!-- faculty -->
 						<div class="form-group">
 								<div class="col-3 col-sm-12">
-									<label for="district" class="form-label">District</label>
+									<label for="district" class="form-label">Center</label>
 								</div>
+								
 								<div class="col-9 col-sm-12">
-									<select name="district" class="form-select">
-										<option value="Gasabo">Gasabo</option>
-										<option value="Kicukiro">Kicukiro</option>
-										<option value="Nyarugenge">Nyarugenge</option>
-									</select>
+										<% if (datacenter) { %>
+											<% datacenter.forEach(function(center){ %>
+									<select id="name" name="district" class="form-select" >
+											<!--<option value="--Select--" disabled>Choose a Center </option>
+											<option selected="<%= center.name %>" value="<%= center.name %>"> <%= center.name %></option> -->
+											<%
+											var options = <%= center.name %>;
+											for ( var i = 0; i < options.length; i++ )
+											{
+												var selected = ( center[0].name == i ) ? "selected" : "";
+												%><option value="<%=options[ i ] %>" <%=selected %>><%=i %></option><%
+											}
+											%>
+									
+									
+										</select>
+									<% }) %>
+				               <% } %>
+								
 								</div>
+								
 							</div>
 					
 						<!-- session -->
@@ -184,6 +200,6 @@ including header content which is common for all pages
 <!--
 including footer content which is common for all pages
 -->
-<%- include ../layouts/footer.ejs %>
+<%- include ../layouts/footerUser.ejs %>
 
 
