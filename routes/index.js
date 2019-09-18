@@ -1,17 +1,15 @@
-var express = require('express');
-var app = express();
+const index = require("../controllers");
 
-app.get('/', function(req, res) {
-	// render to views/index.ejs template file
-	res.render('index', {title: 'Counselor Appointment Application'});
-});
+module.exports = app => {
+  app.use((req, res, next) => {
+    console.log(">>>>>>>>>" + JSON.stringify(req.body));
+    next();
+  });
 
-/** 
- * We assign app object to module.exports
- * 
- * module.exports exposes the app object as a module
- * 
- * module.exports should be used to return the object 
- * when this file is required in another module like app.js
- */ 
-module.exports = app;
+  app.get("/", index.getHomePage);
+
+  app.get("/users", index.getUsers);
+  app.post("/users", index.createUser);
+
+  //   app.use("/contact", contact);
+};
