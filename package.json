@@ -4,9 +4,63 @@
   "description": "Node.js Application using MongoDB",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js",
-    "start-dev": "nodemon app.js",
-    "test": "NODE_ENV=test jest --verbose --forceExit --detectOpenHandles"
+    "pretest": "eslint .",
+    "precommit": "lint-staged",
+    "test": "jest --coverage",
+    "start": "nodemon app.js"
+  },
+  "engines": {
+    "npm": ">= 10.0.0"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.json": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "eslintConfig": {
+    "parserOptions": {
+      "ecmaVersion": 2017,
+      "ecmaFeatures": {
+        "experimentalObjectRestSpread": true
+      }
+    },
+    "extends": [
+      "prettier"
+    ],
+    "env": {
+      "jest": true,
+      "node": true,
+      "es6": true
+    },
+    "rules": {
+      "prettier/prettier": [
+        "error",
+        {
+          "singleQuote": true,
+          "printWidth": 90
+        }
+      ]
+    },
+    "plugins": [
+      "prettier"
+    ]
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "reporters": [
+      "default",
+      "jest-junit"
+    ],
+    "coverageReporters": [
+      "text",
+      "html",
+      "cobertura"
+    ]
   },
   "keywords": [
     "crud",
@@ -23,7 +77,6 @@
     "express-flash": "0.0.2",
     "express-session": "^1.15.3",
     "express-validator": "^3.2.0",
-
     "mongodb": "^2.2.28",
     "mongoose": "^5.7.1",
     "nodemailer": "^6.1.1",
@@ -31,6 +84,11 @@
     "request": "^2.88.0"
   },
   "devDependencies": {
-    "jest": "^24.9.0"
+    "jest": "^24.9.0",
+    "eslint": "^5.6.1",
+    "eslint-config-prettier": "^3.1.0",
+    "eslint-plugin-prettier": "^3.0.0",
+    "lint-staged": "^7.3.0",
+    "prettier": "^1.14.3"
   }
 }
