@@ -1,4 +1,5 @@
 const index = require('../controllers');
+const appointment = require('../controllers/appointment');
 
 module.exports = app => {
   app.use((req, res, next) => {
@@ -16,5 +17,6 @@ module.exports = app => {
   app.get('/users/login', index.authenticateUser);
 
   //APPOINTMENT API
-  app.post('/appointment', index.createAppointment);
+  app.post('/appointment', appointment.createAppointment);
+  app.get('/appointment', appointment.getAppointment);
 };
