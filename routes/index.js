@@ -1,6 +1,6 @@
 const index = require('../controllers');
 const appointment = require('../controllers/appointment');
-
+const center = require('../controllers/center');
 module.exports = app => {
   app.use((req, res, next) => {
     console.log('>>>>>>>>>' + JSON.stringify(req.body));
@@ -19,4 +19,9 @@ module.exports = app => {
   //APPOINTMENT API
   app.post('/appointment', appointment.createAppointment);
   app.get('/appointment', appointment.getAppointment);
+
+  //CENTER API
+  app.post('/center', center.createCenter);
+  app.get('/center', center.getCenter);
+  app.patch('/center/:id', center.editCenter);
 };
