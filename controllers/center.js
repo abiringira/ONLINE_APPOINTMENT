@@ -49,3 +49,12 @@ exports.editCenter = async (req, res) => {
     res.status(500).send('Internal Server Error' + error);
   }
 };
+
+exports.deleteCenter = async (req, res) => {
+  try {
+    await Center.deleteOne({ _id: req.params.id });
+    res.json({ Result: 'center Deleted' });
+  } catch (error) {
+    res.status(500).send('Internal Server error' + error);
+  }
+};

@@ -1,4 +1,4 @@
-const index = require('../controllers');
+const index = require('../controllers/index');
 const appointment = require('../controllers/appointment');
 const center = require('../controllers/center');
 module.exports = app => {
@@ -24,4 +24,5 @@ module.exports = app => {
   app.post('/center', center.createCenter);
   app.get('/center', center.getCenter);
   app.patch('/center/:id', center.editCenter);
+  app.delete('/center/:id', center.deleteCenter);
 };

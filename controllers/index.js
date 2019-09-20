@@ -1,5 +1,4 @@
 const User = require('../models/User');
-const Appointment = require('../models/Appointment');
 
 exports.getHomePage = (req, res) => {
   res.render('index', { title: 'Counselor Appointment Application' });
@@ -7,9 +6,22 @@ exports.getHomePage = (req, res) => {
 
 exports.getUsers = async (req, res) => {
   try {
-    const users = await User.find({});
-    return res.send(users);
+    //const users = await User.find({});
+    //return res.send(users);
+    let result = await User.find({});
+    console.log('cathing error1');
+    let user = {
+      title: 'Users List',
+      userData: ''
+    };
+    user.userData = result;
+    console.log('cathing error3');
+    res.render('appointment/userList', user);
+    console.log('cathing error4');
   } catch (error) {
+    req.flash('error', err);
+    console.log('cathing error2');
+    res.render('appointment/userList', user);
     return res.status(500).send('Internal server error');
   }
 };
