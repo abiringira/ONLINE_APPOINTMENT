@@ -14,7 +14,7 @@ module.exports = app => {
   app.post('/users', index.createUser);
   app.delete('/users/:id', index.deleteUser);
   app.patch('/users/:id', index.editUser);
-  app.get('/users/login', index.authenticateUser);
+  app.post('/session', index.authenticateUser);
 
   //APPOINTMENT API
   app.post('/appointment', appointment.createAppointment);
