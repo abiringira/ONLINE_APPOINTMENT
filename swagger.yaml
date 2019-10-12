@@ -167,7 +167,7 @@ paths:
       - in: body
         name : body
         required: true
-        description : Requesrt new appointment
+        description : Request new appointment
         schema:
          $ref: '#/definitions/Appointment'
       responses:
