@@ -126,14 +126,7 @@ including header content which is common for all pages
 								</div>
 							</div>
 						<!-- secondary -->
-						<div class="form-group">
-								<div class="col-3 col-sm-12">
-									<label for="province" class="form-label">Province</label>
-								</div>
-								<div class="col-9 col-sm-12">
-									<input class="form-input" value="<%= province %>" name="province" />
-								</div>
-							</div>
+						
 						<!-- transcript -->
 						<!-- faculty -->
 						<div class="form-group">
@@ -142,42 +135,53 @@ including header content which is common for all pages
 								</div>
 								
 								<div class="col-9 col-sm-12">
-										<% if (datacenter) { %>
-											<% datacenter.forEach(function(center){ %>
-									<select id="name" name="district" class="form-select" >
-											<option value="--Select--" disabled>Choose a Center </option>
-											<option selected="<%= center.name %>" value="<%= center.name %>"> <%= center.name %></option> 
-											<!--<%
-											var options = <%= center.name %>;
-											for ( var i = 0; i < options.length; i++ )
-											{
-												var selected = ( center[0].name == i ) ? "selected" : "";
-												%><option value="<%=options[ i ] %>" <%=selected %>><%=i %></option><%
-											}
-											%>-->
 									
-									
-										</select>
-									<% }) %>
-				               <% } %>
-								
+									<select name="district"  class="form-select">
+										<option value="Solidminds">Solidminds</option>
+										<option value="Live Again">Live Again</option>
+										<option value="CHUK">CHUK</option>
+										<option value="KFH">KFH</option>
+										<option value="Rwanda Military Hospital">Rwanda Military Hospital</option>
+										<option value="Ndera Hospital">Ndera Hospital</option>
+										<option value="Icyizere Center">Icyizere Center</option>
+										<option value="Rwanda Biomedical Center">Rwanda Biomedical Center</option>
+										<option value="Rwanda Biomedical Center">HVP Gatagara</option>
+									</select>
 								</div>
+								
+							</div>
+
+
+
+
+
+							
+
+							<div class="form-group">
+								<div class="col-3 col-sm-12">
+									<label for="doctor class="form-label">Counsellor</label>
+								</div>
+								<div class="col-9 col-sm-12">
+									
+									<select name="doctor"  class="form-select">
+										<option value="Dr. Kayiteshonga Yvonne">Dr. Kayiteshonga Yvonne</option>
+										<option value="Dr Rutakayisire Bizoza">Dr Rutakayisire Bizoza</option>
+										<option value="Dr. Kibaki Aristide">Dr. Kibaki Aristide</option>
+										<option value="Dr. Jean Paul Vuguziga">Dr. Jean Paul Vuguziga</option>
+										<option value="Dr. lt Col Dr Schadrack NGAMIJE">Dr. lt Col Dr Schadrack NGAMIJE</option>
+										<option value="Dr. Georges Ruterana">Dr. Georges Ruterana</option>
+										<option value="Dr. Charles Mudenge">Dr. Charles Mudenge</option>
+										<option value="Dr. Simon Kanyandekwe">Dr. Simon Kanyandekwe</option>
+										<option value="Dr. Theophile Dushime">Dr. Theophile Dushime</option>
+									</select>
+								</div>
+								
+								
 								
 							</div>
 					
 						<!-- session -->
-						<div class="form-group">
-								<div class="col-3 col-sm-12">
-									<label for="counselor" class="form-label">Counselor</label>
-								</div>
-								<div class="col-9 col-sm-12">
-									<select name="counselor"  class="form-select">
-										<option value="Dr. Bizoza">Dr. Bizoza</option>
-										<option value="Dr. Agnes Kalibata">Dr. Agnes Kalibata</option>
-										<option value="Dr. Marcel Ntazinda">Dr. Marcel Ntazinda</option>
-									</select>
-								</div>
-							</div>
+						
 						<!-- Submit -->
 						<div class="padded-tb">
 							<button class="btn-block btn btn-primary bg-brown text-white" type="submit">Submit</button>

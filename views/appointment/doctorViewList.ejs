@@ -1,7 +1,7 @@
 <!--
 including header content which is common for all pages
 -->
-<%- include ../layouts/header.ejs %>
+<%- include ../layouts/headerDoctor.ejs %>
 
 <% if (messages.error) { %>
 	<div id="toast" class="toast toast-error">
@@ -62,12 +62,11 @@ including header content which is common for all pages
 				<th>Mobile</th>
 				<th>Email</th>
 				<th>Gender</th>
-				<th>ID</th>
+				<th>Identity</th>
 				<th>Center</th>
-				<th>counselor</th>
-				<th>status</th>
-				<th>Confirm/Send Email</th>
-				
+				<th>Counselor</th>
+				<th>Status</th>
+				<th>Approve/Request</th>
 			  </tr>
 			</thead>
 			<tbody>
@@ -87,19 +86,10 @@ including header content which is common for all pages
 					
 					
 					<td>
-						<!-- <div style="float:left">
-							<a href='/users/edit/<%= user._id %>'>Edit</a> &nbsp;							
-							<form method="post" action="/users/delete/<%= user._id %>" style="float:right">
-								<input type="submit" name="delete" value='Delete' onClick="return confirm('Are you sure you want to delete?')" />
-								<input type="hidden" name="_method" value="DELETE" />
-							</form>
-						</div> -->
-					
-						<!-- <button onClick="return confirm('Are you sure you want to delete?')" class="btn btn-error"><i class="icon icon-delete"></i></button> -->
-						<form method="post" action="/users/sendEmail/<%= user._id %>">
-							<!--<a class="btn btn-action btn-primary" href='/users/edit/<%= user._id %>' ><i class="icon icon-edit"></i></a>-->
-							<button type="submit" name="delete" class="btn btn-action btn-primary"><i class="icon icon-edit"></i></button>
-							<input type="hidden" name="_method" value="DELETE" />
+						<form method="post" action="/users/approve/<%= user._id %>">
+							<a class="btn btn-action btn-error" onClick="return confirm('Are you sure you want to aprrove this appointment?')" href='/users/approve/<%= user._id %>' ><i class="icon icon-edit"></i></a> 
+							<!--<button type="submit" name="delete" class="btn btn-action btn-error" onClick="return confirm('Are you sure you want to aprrove this appointment?')"><i class="icon icon-delete"></i></button> -->
+							<input type="hidden" name="_method" value="PUT" />
 						</form>
 					</td>
 				</tr>
@@ -111,7 +101,8 @@ including header content which is common for all pages
 		   
 </div>
 
+
 <!--
 including footer content which is common for all pages
 -->
-<%- include ../layouts/footer.ejs %>
+<%- include ../layouts/footerdoctor.ejs %>

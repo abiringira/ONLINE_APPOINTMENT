@@ -23,12 +23,12 @@ including header content which is common for all pages
   
 	<div class="card edit-student-card transparent-white">
 			<div class="card-header">
-				<div class="card-title h5 text-brown">Edit Center</div>
-				<div class="card-subtitle text-light">Fill in form</div>
+				<div class="card-title h5 text-brown">Approve Appointment</div>
+				<div class="card-subtitle text-light"></div>
 			</div>
 			<div class="divider"></div>
 			<div class="card-body">
-			<form class="form-horizontal" action="/users/edit/<%= id %>" method="post" name="form1">
+			<form class="form-horizontal" action="/users/approve/<%= id %>" method="post" name="form1">
 				<!-- First Name -->
 				<div class="form-group">
 					<div class="col-3 col-sm-12">
@@ -41,19 +41,19 @@ including header content which is common for all pages
 				<!-- Last Name -->
 				<div class="form-group">
 					<div class="col-3 col-sm-12">
-						<label class="form-label" for="district">Location </label>
+						<label class="form-label" for="status">Status </label>
 					</div>
 					<div class="col-9 col-sm-12">
-						<input class="form-input"  name="district" id="district" value="<%= district %>" placeholder="Location">
+						<input class="form-input"  name="status" id="status" value="<%= status %>" placeholder="status">
 					</div>
 					</div>
 				<!-- Age -->
 				
 				<!-- Submit -->
 				<div class="padded-tb">
-					<button class="btn-block btn btn-primary bg-brown text-white" type="submit">Edit Information</button>
+					<button class="btn-block btn btn-primary bg-brown text-white" type="submit">Approve</button>
 				</div>
-				<input type="hidden" name="_method" value="PUT" />
+				<input type="hidden" name="_method" value="PATCH" />
 				</form>
 				</div>
 				</div>
